@@ -10,6 +10,10 @@ export const Home = () => (
       <p>
         <img src="https://picsum.photos/seed/picsum/400/300" alt="Paisaje" />
       </p>
+      <Link to="/contacts" className="btn btn-success me-5">
+        Show me all contacts
+      </Link>
+
       <Link to="/createContact" className="btn btn-success">
         Create a new contact
       </Link>
