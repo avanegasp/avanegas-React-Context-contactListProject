@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home } from "./views/home.jsx";
 import Navbar from "./component/Nabvar.jsx";
+import CreateANewContact from "./views/CreateANewContact.jsx";
 import injectContext from "./store/appContext.jsx";
 
 //create your first component
@@ -18,6 +19,7 @@ const Layout = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="createContact" element={<CreateANewContact />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
