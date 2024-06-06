@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home.jsx";
+import Navbar from "./component/Nabvar.jsx";
 import injectContext from "./store/appContext.jsx";
 
 //create your first component
@@ -14,6 +15,7 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
