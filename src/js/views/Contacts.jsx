@@ -21,10 +21,7 @@ export const getContacts = () => {
               <div className="col-md-8">
                 <div className="card-body">
                   <h5 className="card-title">{contact.name}</h5>
-                  <p className="card-text">
-                    {contact.address}
-                    <FontAwesomeIcon icon="fa-solid fa-location-dot" />
-                  </p>
+                  <p className="card-text">{contact.address}</p>
                   <p className="card-text">{contact.phone}</p>
                   <p className="card-text">{contact.email}</p>
                 </div>
