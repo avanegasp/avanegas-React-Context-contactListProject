@@ -3,9 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home.jsx";
-import Navbar from "./component/Nabvar.jsx";
 import CreateANewContact from "./views/CreateANewContact.jsx";
 import Contacts from "./views/Contacts.jsx";
+
+import Navbar from "./component/Nabvar.jsx";
+
 import injectContext from "./store/AppContext.jsx";
 
 //create your first component

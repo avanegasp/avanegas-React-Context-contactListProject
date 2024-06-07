@@ -1,19 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/AppContext.jsx";
 
 const CreateANewContact = () => {
+  const { store, actions } = useContext(Context);
+  const [contacts, setContact] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    address: "",
+  });
+
+  function handleChange(e) {
+    setContact({ ...contacts, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    actions.createContacts(contacts);
+  }
+
   return (
     <div>
       <div>
-        <h1 className="text-center mt-5">Add a new contact</h1>
+        <h1 className="text-center mt-5">Create a new contact</h1>
       </div>
 
       <div className="d-flex vh-100 justify-content-center align-items-center col-12">
-        <form className="col-8">
+        <form className="col-8" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Full Name
-            </label>
+            <label>Full Name</label>
             <input
+              name="fullName"
+              onChange={(e) => handleChange(e)}
               type="text"
               className="form-control"
               id="exampleInputEmail1"
@@ -21,10 +40,10 @@ const CreateANewContact = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Email
-            </label>
+            <label>Email</label>
             <input
+              name="email"
+              onChange={handleChange}
               type="email"
               className="form-control"
               id="exampleInputEmail1"
@@ -33,10 +52,10 @@ const CreateANewContact = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Phone
-            </label>
+            <label>Phone</label>
             <input
+              name="phone"
+              onChange={handleChange}
               type="text"
               className="form-control"
               id="exampleInputEmail1"
@@ -44,10 +63,10 @@ const CreateANewContact = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Address
-            </label>
+            <label>Address</label>
             <input
+              name="address"
+              onChange={handleChange}
               type="text"
               className="form-control"
               id="exampleInputEmail1"
@@ -58,6 +77,11 @@ const CreateANewContact = () => {
             <button type="submit" className="btn btn-primary col-8 text-center">
               Save
             </button>
+          </div>
+          <div className="d-flex justify-content-center mt-5">
+            <Link to="/contacts" className="btn btn-success me-5">
+              Show me all contacts
+            </Link>
           </div>
         </form>
       </div>

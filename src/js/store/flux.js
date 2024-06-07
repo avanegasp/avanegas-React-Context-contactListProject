@@ -19,10 +19,38 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(e);
         }
       },
-      addContacts: async () => {},
+
+      createContacts: async (contacts) => {
+        try {
+          console.log("esto es contacts...", contacts);
+          const response = await fetch(
+            "https://playground.4geeks.com/contact/agendas/Angie_Vanegas",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                // fullName: contacts.name,
+                // phone: contacts.phone,
+                // address: contacts.address,
+                // email: contacts.email,
+                // id: contacts.id,
+                ...contacts,
+              }),
+              headers: {
+                "Content-type": "application/json",
+              },
+            }
+          );
+          if (response.ok) {
+            alert("Haz creado un post");
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      },
       editContacts: async () => {},
       deleteContacts: async () => {},
     },
   };
 };
+
 export default getState;

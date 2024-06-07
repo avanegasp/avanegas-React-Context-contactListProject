@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/AppContext.jsx";
 
 export const getContacts = () => {
@@ -30,6 +31,14 @@ export const getContacts = () => {
           </div>
         );
       })}
+      <div>
+        <Link
+          to="/createContact"
+          className="btn btn-success d-flex justify-content-center"
+        >
+          Create a new contact
+        </Link>
+      </div>
     </div>
   );
 };
