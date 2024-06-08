@@ -41,8 +41,27 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       editContacts: async () => {},
+
       deleteContacts: async (id) => {
-        const response = await fetch("");
+        try {
+          const store = getStore();
+          const response = await fetch(store.apiUrl + `/${id}`, {
+            method: "DELETE",
+          });
+          if (!response.ok) {
+            alert("No se puede borrar");
+            throw new Error("No se pudo borrar tu contacto");
+          } else {
+            const filteredContacts = store.contacts.filter(
+              (contact) => contact.id !== id
+            );
+            console.log("esto es filteredContacts", filteredContacts);
+
+            setStore({ contacts: filteredContacts });
+          }
+        } catch (e) {
+          console.error(e);
+        }
       },
     },
   };
