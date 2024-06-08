@@ -1,4 +1,4 @@
-import getContacts from "../views/Contacts";
+import getContacts from "../views/Contacts.jsx";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {

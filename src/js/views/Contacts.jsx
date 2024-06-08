@@ -45,9 +45,9 @@ export const getContacts = () => {
                   </p>
                 </div>
                 <div className="col-md-4">
-                  <div className="">
+                  <span className="">
                     <FontAwesomeIcon icon={faPen} />
-                  </div>
+                  </span>
                   <span onClick={() => actions.deleteContact(contact.id)}>
                     <FontAwesomeIcon icon={faTrashCan} />
                   </span>
