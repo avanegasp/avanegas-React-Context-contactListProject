@@ -11,7 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const getContacts = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
+
   console.log("esto es storeee desde Contacts....", store);
 
   return (
@@ -46,8 +47,10 @@ export const getContacts = () => {
                 <div className="col-md-4">
                   <div className="">
                     <FontAwesomeIcon icon={faPen} />
-                    <FontAwesomeIcon icon={faTrashCan} />
                   </div>
+                  <span onClick={() => actions.deleteContact(contact.id)}>
+                    <FontAwesomeIcon icon={faTrashCan} />
+                  </span>
                 </div>
               </div>
             </div>

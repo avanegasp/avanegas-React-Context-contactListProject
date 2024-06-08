@@ -42,10 +42,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       editContacts: async () => {},
 
-      deleteContacts: async (id) => {
+      deleteContact: async (id) => {
         try {
           const store = getStore();
-          const response = await fetch(store.apiUrl + `/${id}`, {
+          const response = await fetch(store.apiUrl + "/contacts" + `/${id}`, {
             method: "DELETE",
           });
           if (!response.ok) {
@@ -56,7 +56,6 @@ const getState = ({ getStore, getActions, setStore }) => {
               (contact) => contact.id !== id
             );
             console.log("esto es filteredContacts", filteredContacts);
-
             setStore({ contacts: filteredContacts });
           }
         } catch (e) {
