@@ -20,20 +20,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      createContacts: async (contacts) => {
+      createContacts: async (contact) => {
         try {
-          console.log("esto es contacts...", contacts);
+          console.log("esto es contacts...", contact);
           const response = await fetch(
             "https://playground.4geeks.com/contact/agendas/Angie_Vanegas/contacts",
             {
               method: "POST",
               body: JSON.stringify({
-                // name: contacts.name,
-                // phone: contacts.phone,
-                // address: contacts.address,
-                // email: contacts.email,
-                // id: contacts.id,
-                ...contacts,
+                ...contact,
               }),
               headers: {
                 "Content-type": "application/json",

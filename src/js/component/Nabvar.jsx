@@ -5,9 +5,13 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          My contact List
-        </a>
+        <Link
+          to="/"
+          className="nav-link active text-success-emphasis"
+          aria-current="page"
+        >
+          My contactList
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,15 +28,12 @@ const Navbar = () => {
             <Link to="/" className="nav-link active" aria-current="page">
               Home
             </Link>
-            <a className="nav-link" href="#">
-              Features
-            </a>
-            <a className="nav-link" href="#">
-              Pricing
-            </a>
-            <a className="nav-link disabled" aria-disabled="true">
-              Disabled
-            </a>
+            <Link to="/contacts" className="nav-link active">
+              Contacts
+            </Link>
+            <Link to="/createContact" className="nav-link active">
+              Create
+            </Link>
           </div>
         </div>
       </div>

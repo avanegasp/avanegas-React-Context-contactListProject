@@ -4,7 +4,7 @@ import { Context } from "../store/AppContext.jsx";
 
 const CreateANewContact = () => {
   const { store, actions } = useContext(Context);
-  const [contacts, setContact] = useState({
+  const [contact, setContact] = useState({
     name: "",
     phone: "",
     email: "",
@@ -12,12 +12,12 @@ const CreateANewContact = () => {
   });
 
   function handleChange(e) {
-    setContact({ ...contacts, [e.target.name]: e.target.value });
+    setContact({ ...contact, [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    actions.createContacts(contacts);
+    actions.createContacts(contact);
   }
 
   return (
