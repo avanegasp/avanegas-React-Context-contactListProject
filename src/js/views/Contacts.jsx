@@ -1,6 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/AppContext.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faPhoneVolume,
+  faEnvelope,
+  faTrashCan,
+  faPen,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const getContacts = () => {
   const { store } = useContext(Context);
@@ -22,9 +30,24 @@ export const getContacts = () => {
               <div className="col-md-8">
                 <div className="card-body">
                   <h5 className="card-title">{contact.name}</h5>
-                  <p className="card-text">{contact.address}</p>
-                  <p className="card-text">{contact.phone}</p>
-                  <p className="card-text">{contact.email}</p>
+                  <p className="card-text">
+                    <FontAwesomeIcon icon={faLocationDot} />
+                    {contact.address}
+                  </p>
+                  <p className="card-text">
+                    <FontAwesomeIcon icon={faPhoneVolume} />
+                    {contact.phone}
+                  </p>
+                  <p className="card-text">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                    {contact.email}
+                  </p>
+                </div>
+                <div className="col-md-4">
+                  <div className="">
+                    <FontAwesomeIcon icon={faTrashCan} />
+                    <FontAwesomeIcon icon={faPen} />
+                  </div>
                 </div>
               </div>
             </div>

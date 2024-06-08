@@ -43,7 +43,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       editContacts: async () => {},
-      deleteContacts: async () => {},
+      deleteContacts: async (id) => {
+        const response = await fetch("");
+      },
     },
   };
 };
