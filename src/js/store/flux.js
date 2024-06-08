@@ -24,11 +24,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           console.log("esto es contacts...", contacts);
           const response = await fetch(
-            "https://playground.4geeks.com/contact/agendas/Angie_Vanegas",
+            "https://playground.4geeks.com/contact/agendas/Angie_Vanegas/contacts",
             {
               method: "POST",
               body: JSON.stringify({
-                // fullName: contacts.name,
+                // name: contacts.name,
                 // phone: contacts.phone,
                 // address: contacts.address,
                 // email: contacts.email,

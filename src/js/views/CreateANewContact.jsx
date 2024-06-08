@@ -5,7 +5,7 @@ import { Context } from "../store/AppContext.jsx";
 const CreateANewContact = () => {
   const { store, actions } = useContext(Context);
   const [contacts, setContact] = useState({
-    fullName: "",
+    name: "",
     phone: "",
     email: "",
     address: "",
@@ -31,7 +31,7 @@ const CreateANewContact = () => {
           <div className="mb-3">
             <label>Full Name</label>
             <input
-              name="fullName"
+              name="name"
               onChange={(e) => handleChange(e)}
               type="text"
               className="form-control"
