@@ -45,8 +45,8 @@ export const getContacts = () => {
                 </div>
                 <div className="col-md-4">
                   <div className="">
-                    <FontAwesomeIcon icon={faTrashCan} />
                     <FontAwesomeIcon icon={faPen} />
+                    <FontAwesomeIcon icon={faTrashCan} />
                   </div>
                 </div>
               </div>

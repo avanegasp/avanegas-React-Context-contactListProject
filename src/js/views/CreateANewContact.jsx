@@ -26,7 +26,7 @@ const CreateANewContact = () => {
         <h1 className="text-center mt-5">Create a new contact</h1>
       </div>
 
-      <div className="d-flex vh-100 justify-content-center align-items-center col-12">
+      <div className="d-flex vh-100 justify-content-center align-items-center">
         <form className="col-8" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label>Full Name</label>

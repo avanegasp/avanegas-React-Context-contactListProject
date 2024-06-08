@@ -1,14 +1,14 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      apiUrl: "https://playground.4geeks.com/contact/agendas/Angie_Vanegas",
       contacts: [],
     },
     actions: {
       getContacts: async () => {
+        const store = getStore(); // nos devuelve los valores
         try {
-          const response = await fetch(
-            "https://playground.4geeks.com/contact/agendas/Angie_Vanegas"
-          );
+          const response = await fetch(store.apiUrl);
           if (!response.ok) {
             throw new Error("Opss there has been an error");
           }
@@ -21,20 +21,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       createContacts: async (contact) => {
+        const store = getStore();
         try {
           console.log("esto es contacts...", contact);
-          const response = await fetch(
-            "https://playground.4geeks.com/contact/agendas/Angie_Vanegas/contacts",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                ...contact,
-              }),
-              headers: {
-                "Content-type": "application/json",
-              },
-            }
-          );
+          const response = await fetch(store.apiUrl + "/contacts", {
+            method: "POST",
+            body: JSON.stringify({
+              ...contact,
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          });
           if (response.ok) {
             alert("Haz creado un post");
           }
