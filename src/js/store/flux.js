@@ -1,3 +1,5 @@
+import getContacts from "../views/Contacts";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -40,7 +42,25 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error(e);
         }
       },
-      editContacts: async () => {},
+      updateContacts: async (id, contact) => {
+        const store = getStore();
+        const actions = getActions(); // traer la función que nos trae los contacts
+        try {
+          const response = await fetch(store.apiUrl + "/contacts" + `/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(contact),
+            headers: { "Content-type": "applicaction/json" },
+          });
+          const data = await response.json();
+          console.log(data);
+          if (!response.ok) {
+            // cuando actualice traiga los contactos
+            actions.getContacts();
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      },
 
       deleteContact: async (id) => {
         try {
@@ -50,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
           if (!response.ok) {
             alert("No se puede borrar");
-            throw new Error("No se pudo borrar tu contacto");
+            throw new Error("No se pudo borrar el contacto");
           } else {
             const filteredContacts = store.contacts.filter(
               (contact) => contact.id !== id
