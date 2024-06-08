@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/AppContext.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,8 +10,14 @@ import {
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const getContacts = () => {
+export const Contacts = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+
+  function handleToEdit(contact) {
+    actions.updateContactToEdit(contact);
+    navigate("/updateContact");
+  }
 
   console.log("esto es storeee desde Contacts....", store);
 
@@ -45,7 +51,7 @@ export const getContacts = () => {
                   </p>
                 </div>
                 <div className="col-md-4">
-                  <span className="">
+                  <span onClick={() => handleToEdit(contact)}>
                     <FontAwesomeIcon icon={faPen} />
                   </span>
                   <span onClick={() => actions.deleteContact(contact.id)}>
@@ -57,16 +63,8 @@ export const getContacts = () => {
           </div>
         );
       })}
-      <div>
-        <Link
-          to="/createContact"
-          className="btn btn-success d-flex justify-content-center"
-        >
-          Create a new contact
-        </Link>
-      </div>
     </div>
   );
 };
 
-export default getContacts;
+export default Contacts;

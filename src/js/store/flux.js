@@ -5,8 +5,12 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       apiUrl: "https://playground.4geeks.com/contact/agendas/Angie_Vanegas",
       contacts: [],
+      contactToEdit: {},
     },
     actions: {
+      updateContactToEdit: (contact) => {
+        setStore({ contactToEdit: contact });
+      },
       getContacts: async () => {
         const store = getStore(); // nos devuelve los valores
         try {

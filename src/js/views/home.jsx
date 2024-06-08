@@ -14,8 +14,12 @@ export const Home = () => (
         Show me all contacts
       </Link>
 
-      <Link to="/createContact" className="btn btn-success">
+      <Link to="/createContact" className="btn btn-success me-5">
         Create a new contact
+      </Link>
+
+      <Link to="/updateContact" className="btn btn-success">
+        Update a contact
       </Link>
     </div>
   </div>
