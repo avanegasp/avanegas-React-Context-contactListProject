@@ -18,16 +18,15 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // actions.createContacts(contact);
-    // Si tenemos id estamos actualizando
     if (id) {
-      actions.updateContacts(id, contact);
+      await actions.updateContacts(id, contact);
       navigate("/contacts");
     } else {
-      // Si no tenemos id, estamos creando
-      actions.createContacts(contact);
+      await actions.createContacts(contact);
+      navigate("/contacts");
+      actions.getContacts(contact);
     }
   }
 

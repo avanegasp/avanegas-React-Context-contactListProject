@@ -11,7 +11,7 @@ const UpdateContact = () => {
         <h1 className="text-center mt-5">Update a new contact</h1>
       </div>
 
-      <div className="d-flex vh-100 justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center">
         <ContactForm
           btnName={"Update"}
           name={store.contactToEdit.name}

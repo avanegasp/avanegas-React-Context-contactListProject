@@ -11,6 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       updateContactToEdit: (contact) => {
         setStore({ contactToEdit: contact });
       },
+
       getContacts: async () => {
         const store = getStore(); // nos devuelve los valores
         try {
@@ -38,12 +39,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
           });
           if (response.ok) {
-            alert("Haz creado un post");
           }
         } catch (e) {
           console.error(e);
         }
       },
+
       updateContacts: async (id, contact) => {
         const store = getStore();
         const actions = getActions(); // traer la función que nos trae los contacts
@@ -72,7 +73,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             throw new Error("No se pudo borrar el contacto");
           } else {
             const filteredContacts = store.contacts.filter(
-              (contact) => contact.id !== id
+              (contact) => contact.id !== id,
+              alert("desea borrar?")
             );
             setStore({ contacts: filteredContacts });
           }

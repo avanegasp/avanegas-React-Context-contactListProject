@@ -19,42 +19,73 @@ export const Contacts = () => {
     navigate("/updateContact");
   }
 
+  function handleToDelete(contact) {
+    actions.deleteContact(contact);
+  }
+
   return (
     <div>
+      <div>
+        {store.contacts.length === 0 ? (
+          <div className="text-center alert alert-info" role="alert">
+            No hay contactos, crea uno
+          </div>
+        ) : null}
+      </div>
       {store.contacts.map((contact) => {
         return (
           <div className="card mb-3" key={contact.id}>
             <div className="row">
               <div className="col-md-4">
                 <img
-                  src="https://picsum.photos/200/170?people"
+                  src="https://picsum.photos/200/200?people"
                   className="img-fluid rounded-start"
                   alt="people"
                 />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h5 className="card-title">{contact.name}</h5>
-                  <p className="card-text">
-                    <FontAwesomeIcon icon={faLocationDot} />
-                    {contact.address}
-                  </p>
-                  <p className="card-text">
-                    <FontAwesomeIcon icon={faPhoneVolume} />
-                    {contact.phone}
-                  </p>
-                  <p className="card-text">
-                    <FontAwesomeIcon icon={faEnvelope} />
-                    {contact.email}
-                  </p>
-                </div>
-                <div className="col-md-4">
-                  <span onClick={() => handleToEdit(contact)}>
-                    <FontAwesomeIcon icon={faPen} />
-                  </span>
-                  <span onClick={() => actions.deleteContact(contact.id)}>
-                    <FontAwesomeIcon icon={faTrashCan} />
-                  </span>
+                  <h5 className="card-title mb-3">{contact.name}</h5>
+                  <div className="ms-5">
+                    <div className="col-md-10 d-flex justify-content-end ms-5">
+                      <div className="pe-5">
+                        <span onClick={() => handleToEdit(contact)}>
+                          <FontAwesomeIcon icon={faPen} />
+                        </span>
+                      </div>
+                      <div className="pe-5">
+                        <span onClick={() => handleToDelete(contact.id)}>
+                          <FontAwesomeIcon icon={faTrashCan} />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="d-flex">
+                    <div>
+                      <p className="card-text pe-5 mb-2">
+                        <FontAwesomeIcon icon={faLocationDot} />
+                      </p>
+                    </div>
+                    <div>{contact.address}</div>
+                  </div>
+                  <div className="d-flex">
+                    <div>
+                      <p className="card-text pe-5 mb-2">
+                        <FontAwesomeIcon icon={faPhoneVolume} />
+                      </p>
+                    </div>
+                    <div>
+                      <div>{contact.phone}</div>
+                    </div>
+                  </div>
+                  <div className="d-flex">
+                    <div>
+                      <p className="card-text pe-5 mb-2">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </p>
+                    </div>
+                    <div>{contact.email}</div>
+                  </div>
                 </div>
               </div>
             </div>
