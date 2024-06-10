@@ -19,8 +19,6 @@ export const Contacts = () => {
     navigate("/updateContact");
   }
 
-  console.log("esto es storeee desde Contacts....", store);
-
   return (
     <div>
       {store.contacts.map((contact) => {

@@ -1,15 +1,18 @@
 import React, { useState, useContext } from "react";
-// import { Context } from "../store/AppContext.jsx";
+import { Context } from "../store/AppContext.jsx";
+import { useNavigate } from "react-router";
 
-const ContactForm = ({ btnName, name }) => {
-  // const { actions } = useContext(Context);
+const ContactForm = ({ btnName, name, phone, address, email, id }) => {
+  const { actions } = useContext(Context);
 
   const [contact, setContact] = useState({
     name,
-    phone: "",
-    email: "",
-    address: "",
+    phone,
+    email,
+    address,
   });
+
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setContact({ ...contact, [e.target.name]: e.target.value });
@@ -18,10 +21,13 @@ const ContactForm = ({ btnName, name }) => {
   function handleSubmit(e) {
     e.preventDefault();
     // actions.createContacts(contact);
-    if (btnName === "Create") {
-      console.log("Estás creando");
+    // Si tenemos id estamos actualizando
+    if (id) {
+      actions.updateContacts(id, contact);
+      navigate("/contacts");
     } else {
-      console.log("Estás actualizando");
+      // Si no tenemos id, estamos creando
+      actions.createContacts(contact);
     }
   }
 
@@ -49,6 +55,7 @@ const ContactForm = ({ btnName, name }) => {
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="Email"
+          value={contact.email}
         />
       </div>
       <div className="mb-3">
@@ -60,6 +67,7 @@ const ContactForm = ({ btnName, name }) => {
           className="form-control"
           id="exampleInputEmail1"
           placeholder="Phone"
+          value={contact.phone}
         />
       </div>
       <div className="mb-3">
@@ -71,6 +79,7 @@ const ContactForm = ({ btnName, name }) => {
           className="form-control"
           id="exampleInputEmail1"
           placeholder="Address"
+          value={contact.address}
         />
       </div>
       <div className="d-flex justify-content-center mt-5">

@@ -19,7 +19,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             throw new Error("Opss there has been an error");
           }
           const data = await response.json();
-          console.log("esto es data....", data.contacts);
           setStore({ contacts: data.contacts });
         } catch (e) {
           console.error(e);
@@ -29,7 +28,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       createContacts: async (contact) => {
         const store = getStore();
         try {
-          console.log("esto es contacts...", contact);
           const response = await fetch(store.apiUrl + "/contacts", {
             method: "POST",
             body: JSON.stringify({
@@ -53,14 +51,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           const response = await fetch(store.apiUrl + "/contacts" + `/${id}`, {
             method: "PUT",
             body: JSON.stringify(contact),
-            headers: { "Content-type": "applicaction/json" },
+            headers: { "Content-type": "application/json" },
           });
           const data = await response.json();
-          console.log(data);
-          if (!response.ok) {
-            // cuando actualice traiga los contactos
-            actions.getContacts();
-          }
+          // cuando actualice traiga los contactos
+          actions.getContacts();
         } catch (e) {
           console.log(e);
         }
@@ -79,7 +74,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             const filteredContacts = store.contacts.filter(
               (contact) => contact.id !== id
             );
-            console.log("esto es filteredContacts", filteredContacts);
             setStore({ contacts: filteredContacts });
           }
         } catch (e) {
