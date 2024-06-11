@@ -6,10 +6,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       apiUrl: "https://playground.4geeks.com/contact/agendas/Angie_Vanegas",
       contacts: [],
       contactToEdit: {},
+      contactToConfirmationToDelete: {},
     },
     actions: {
       updateContactToEdit: (contact) => {
         setStore({ contactToEdit: contact });
+      },
+
+      deleteContactToConfirmationToDelete: (contact) => {
+        setStore({ contactToConfirmationToDelete: contact });
       },
 
       getContacts: async () => {
@@ -87,8 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             throw new Error("No se pudo borrar el contacto");
           } else {
             const filteredContacts = store.contacts.filter(
-              (contact) => contact.id !== id,
-              alert("desea borrar?")
+              (contact) => contact.id !== id
             );
             setStore({ contacts: filteredContacts });
           }

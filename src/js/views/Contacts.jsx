@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/AppContext.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,8 +9,11 @@ import {
   faTrashCan,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
+import ConfirmationToDelete from "../component/ConfirmationToDelete.jsx";
+import { func } from "prop-types";
 
 export const Contacts = () => {
+  const [openModal, setOpenModal] = useState(false);
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
@@ -19,8 +22,12 @@ export const Contacts = () => {
     navigate("/updateContact");
   }
 
-  function handleToDelete(contact) {
-    actions.deleteContact(contact);
+  function handleToOpenModal() {
+    setOpenModal(true);
+  }
+
+  function handleToCloseModal() {
+    setOpenModal(false);
   }
 
   return (
@@ -54,7 +61,7 @@ export const Contacts = () => {
                         </span>
                       </div>
                       <div className="pe-5">
-                        <span onClick={() => handleToDelete(contact.id)}>
+                        <span onClick={handleToOpenModal}>
                           <FontAwesomeIcon icon={faTrashCan} />
                         </span>
                       </div>
@@ -89,6 +96,11 @@ export const Contacts = () => {
                 </div>
               </div>
             </div>
+            <ConfirmationToDelete
+              modalTriggered={openModal}
+              id={contact.id}
+              closeModal={handleToCloseModal}
+            />
           </div>
         );
       })}
