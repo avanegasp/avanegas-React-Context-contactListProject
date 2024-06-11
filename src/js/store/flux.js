@@ -13,14 +13,27 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getContacts: async () => {
+        const actions = getActions();
         const store = getStore(); // nos devuelve los valores
         try {
           const response = await fetch(store.apiUrl);
-          if (!response.ok) {
-            throw new Error("Opss there has been an error");
+          if (response.status === 404) {
+            await actions.createAgenda();
+            return;
           }
           const data = await response.json();
           setStore({ contacts: data.contacts });
+        } catch (e) {
+          console.error(e);
+        }
+      },
+
+      createAgenda: async () => {
+        const store = getStore();
+        try {
+          const response = await fetch(store.apiUrl, {
+            method: "POST",
+          });
         } catch (e) {
           console.error(e);
         }
@@ -39,6 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
           });
           if (response.ok) {
+            console.log("Contacto creado");
           }
         } catch (e) {
           console.error(e);

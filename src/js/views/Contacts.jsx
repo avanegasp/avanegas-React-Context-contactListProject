@@ -24,7 +24,7 @@ export const Contacts = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <div>
         {store.contacts.length === 0 ? (
           <div className="text-center alert alert-info" role="alert">
@@ -39,15 +39,15 @@ export const Contacts = () => {
               <div className="col-md-4">
                 <img
                   src="https://picsum.photos/200/200?people"
-                  className="img-fluid rounded-start"
+                  className="d-flex mx-auto img-fluid rounded-circle mt-3 mb-3"
                   alt="people"
                 />
               </div>
               <div className="col-md-8">
-                <div className="card-body">
+                <div className="card-body d-inline">
                   <h5 className="card-title mb-3">{contact.name}</h5>
                   <div className="ms-5">
-                    <div className="col-md-10 d-flex justify-content-end ms-5">
+                    <div className="col-md-10 d-flex justify-content-end mx-auto">
                       <div className="pe-5">
                         <span onClick={() => handleToEdit(contact)}>
                           <FontAwesomeIcon icon={faPen} />
