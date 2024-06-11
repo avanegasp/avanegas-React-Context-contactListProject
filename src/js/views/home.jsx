@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CreateANewContact from "./CreateANewContact.jsx";
 import "../../styles/home.css";
 
 export const Home = () => (
