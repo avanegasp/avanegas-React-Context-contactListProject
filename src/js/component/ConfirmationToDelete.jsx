@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/AppContext.jsx";
 
 const ConfirmationToDelete = ({ modalTriggered, id, closeModal }) => {
   const { actions } = useContext(Context);
-  console.log(modalTriggered, "Modal triguered hereeee");
 
   async function handleToConfirmationToDelete() {
     await actions.deleteContact(id);
