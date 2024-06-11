@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/AppContext.jsx";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ConfirmationToDelete from "../component/ConfirmationToDelete.jsx";
+import ConfirmationToDelete from "../component/ConfirmationToDeleteModal.jsx";
 import {
   faLocationDot,
   faPhoneVolume,

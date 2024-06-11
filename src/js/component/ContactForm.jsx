@@ -31,7 +31,7 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
   }
 
   return (
-    <form className="col-8" onSubmit={handleSubmit}>
+    <form className="col-8 mt-5" onSubmit={handleSubmit}>
       <div className="mb-3">
         <label>Full Name</label>
         <input

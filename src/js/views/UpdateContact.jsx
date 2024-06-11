@@ -6,12 +6,14 @@ const UpdateContact = () => {
   const { store } = useContext(Context);
   // const { contactToEdit } = store;
   return (
-    <div>
+    <div className="d-grid">
       <div>
-        <h1 className="text-center mt-5">Update a new contact</h1>
+        <h1 className="d-flex justify-content-center mt-5 mb-5">
+          Update a new contact
+        </h1>
       </div>
 
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center mt-5">
         <ContactForm
           btnName={"Update"}
           name={store.contactToEdit.name}
