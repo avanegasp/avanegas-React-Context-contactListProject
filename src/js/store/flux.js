@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      createContacts: async (contact) => {
+      createContact: async (contact) => {
         const store = getStore();
         try {
           const response = await fetch(store.apiUrl + "/contacts", {
@@ -62,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      updateContacts: async (id, contact) => {
+      updateContact: async (id, contact) => {
         const store = getStore();
         const actions = getActions(); // traer la función que nos trae los contacts
         try {

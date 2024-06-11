@@ -21,10 +21,10 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
   async function handleSubmit(e) {
     e.preventDefault();
     if (id) {
-      await actions.updateContacts(id, contact);
+      await actions.updateContact(id, contact);
       navigate("/contacts");
     } else {
-      await actions.createContacts(contact);
+      await actions.createContact(contact);
       navigate("/contacts");
       actions.getContacts(contact);
     }
