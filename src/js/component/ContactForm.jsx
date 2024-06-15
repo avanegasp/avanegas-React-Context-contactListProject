@@ -39,7 +39,6 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
           onChange={(e) => handleChange(e)}
           type="text"
           className="form-control"
-          id="exampleInputEmail1"
           placeholder="Full Name"
           value={contact.name}
         />
@@ -51,7 +50,6 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
           onChange={handleChange}
           type="email"
           className="form-control"
-          id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="Email"
           value={contact.email}
@@ -64,7 +62,6 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
           onChange={handleChange}
           type="text"
           className="form-control"
-          id="exampleInputEmail1"
           placeholder="Phone"
           value={contact.phone}
         />
@@ -76,7 +73,6 @@ const ContactForm = ({ btnName, name, phone, address, email, id }) => {
           onChange={handleChange}
           type="text"
           className="form-control"
-          id="exampleInputEmail1"
           placeholder="Address"
           value={contact.address}
         />
