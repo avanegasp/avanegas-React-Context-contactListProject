@@ -2,7 +2,14 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/AppContext.jsx";
 import { useNavigate } from "react-router";
 
-const ContactForm = ({ btnName, name, phone, address, email, id }) => {
+const ContactForm = ({
+  btnName,
+  name = "",
+  phone = "",
+  address = "",
+  email = "",
+  id,
+}) => {
   const { actions } = useContext(Context);
 
   const [contact, setContact] = useState({
