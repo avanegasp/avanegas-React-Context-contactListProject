@@ -1,6 +1,9 @@
 # Lista de Contactos usando React & Context
 Crea una aplicación de gestión de contactos con funcionalidades completas para manejar información de contactos, utilizando React, Context API y React Router.
 
+<img width="1430" alt="image" src="https://github.com/user-attachments/assets/19e664cd-dd6d-495e-b54f-86e29cd5f85b">
+
+
 ## Tecnologías utilizadas:
 
 - **HTML**
